@@ -25,11 +25,11 @@ type IpcServer struct {
 	Server
 }
 
-func NewIpcServer(server Server) {
+func NewIpcServer(server Server) *IpcServer {
 	return &IpcServer(server)
 }
 
-func (server *IpcServer)Connect() chan string {
+func (server *IpcServer) Connect() chan string {
 	session := make(chan string, 0) //0说明没有缓冲区
 
 	go func(c chan string) {
